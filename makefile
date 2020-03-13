@@ -1,6 +1,6 @@
 all :
 	yacc -d compiler.y
-	flex compiler.l
+	flex -d compiler.l
 	gcc lex.yy.c y.tab.c -o compiler
 
 clean :

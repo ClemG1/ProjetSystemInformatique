@@ -28,11 +28,15 @@ separator [ \t]+
 "," return(tCOMMA);
 \n {}
 ";" return(tSEMICOLON);
-{name} return(tNAME);
+{name} {
+    yylval.str=strdup(yytext);    
+    return(tNAME);}
 {integer} {
-    yylval=atoi(yytext);
+    yylval.nb=atoi(yytext);
     return(tINT);}
-{exponent} return(tEXPONENT);
+{exponent} {
+    yylval.nb=(int)atof(yytext);
+    return(tEXPONENT);}
 {separator} {}
 
 %%

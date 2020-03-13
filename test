@@ -1,12 +1,6 @@
 int main () {
     int a = 2;
     int b = 568;
-    int c = a + b;
-    printf(c);
-    int d = e+10
-    int e10 = a * b;
-    int f = e-5;
-    int
-    b                                =
-                            6;
+    printf(a);
+    printf(e+2);
 }

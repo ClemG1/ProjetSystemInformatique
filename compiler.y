@@ -4,20 +4,35 @@
     void yyerror(char * str);
 %}
 
+%union{
+    int nb;
+    char* str;
+}
+
 %token tMUL tDIV tADD tSUB tEQ
 %token tMAIN tPRINTF
 %token tOPENBRACE tCLOSEBRACE tOPENBRACKET tCLOSEBRACKET
 %token tCONSTDECLARE tINTDECLARE
 %token tCOMMA tSEMICOLON
-%token tNAME
-%token tINT
-%token tEXPONENT
+%token <str> tNAME
+%token <nb> tINT tEXPONENT
+%type <nb> Expression 
+%type <nb> Value
+
+
+
+%right tEQ
+%left tADD tSUB
+%left tMUL tDIV
+
+
+
 
 %start File;
 
 %%
 
-    File : tINT tMAIN tOPENBRACKET tCLOSEBRACKET tOPENBRACE Body tCLOSEBRACE;
+    File : tINTDECLARE tMAIN tOPENBRACKET tCLOSEBRACKET tOPENBRACE Body tCLOSEBRACE;
 
     Body :
         /*vide*/
@@ -30,7 +45,7 @@
         | Function
         ;
 
-    Definition : Prefix DefVar DefVarN tSEMICOLON;
+    Definition : Prefix DefVar DefVarN tSEMICOLON {printf("reconnu def");};
 
     Prefix :
         Type
@@ -39,8 +54,8 @@
 
     Type : tINTDECLARE;
 
-    DefVAr :
-        tName 
+    DefVar :
+        tNAME 
         | tNAME tEQ  Value
         ;
     
@@ -49,23 +64,25 @@
         | tCOMMA DefVar
         ;
     
-    Value : tINT;
+    Value : 
+        tINT {$$=$1;}
+        ;
 
     Allocation : tNAME tEQ Expression tSEMICOLON;
 
     Expression :
-        Value
-        | Expression tADD Expression
-        | Expression tSUB Expression
-        | Expression tMUL Expression
-        | Expression tDIV Expression
-        | tSUB Expression
-        | tOPENBRACKET Expression tCLOSEBRACKET
+        Value {$$=$1;}
+        | Expression tADD Expression {$$ =$1+$3;}
+        | Expression tSUB Expression {$$ =$1-$3;}
+        | Expression tMUL Expression {$$ =$1*$3;}
+        | Expression tDIV Expression {$$ =$1/$3;}
+        | tSUB Expression {$$ =-$2;}
+        | tOPENBRACKET Expression tCLOSEBRACKET{$$ =$2;}
         ;
 
     Function : 
-        tPRINTF tOPENBRACKET tNAME tCLOSEBRACKET tSEMICOLON
-        | tPRINTF tOPENBRACKET Expression tCLOSEBRACKET tSEMICOLON
+        tPRINTF tOPENBRACKET tNAME tCLOSEBRACKET tSEMICOLON {printf("%s",$3);}
+        | tPRINTF tOPENBRACKET Expression tCLOSEBRACKET tSEMICOLON {printf("%d",$3);}
         ;
 
 %%
