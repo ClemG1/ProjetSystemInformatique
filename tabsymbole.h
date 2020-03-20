@@ -13,11 +13,13 @@ typedef struct {
 void depthUp ();
 void depthDown ();
 
-void setRowToDefault(symbol row);
 void initTabSymbol ();
 void deleteRow ();
-void addRow(char * name, char * vtype, int constant);
-void setInit (char * name, int depth);
-int getAddress (char * name, int depth);
+void addRow(char * name);
+int setInit (char * name);
+int getAddress (char * name);
+void setIsConstant (int value);
+void setCurrentVtype (char * type);
+void displayTab();
 
 #endif

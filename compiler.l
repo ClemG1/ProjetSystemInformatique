@@ -13,10 +13,14 @@ separator [ \t]+
 %%
 
 "main" return(tMAIN);
+"if" return(tIF);
+"else" return(tELSE);
 "{" return(tOPENBRACE);
 "}" return(tCLOSEBRACE);
 "const" return(tCONSTDECLARE);
-"int" return(tINTDECLARE);
+"int" {
+	yylval.str=strdup(yytext);
+	return(tINTDECLARE);}
 "printf" return(tPRINTF);
 "+" return(tADD);
 "-" return(tSUB);
