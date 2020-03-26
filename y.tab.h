@@ -50,21 +50,23 @@ extern int yydebug;
     tADD = 260,
     tSUB = 261,
     tEQ = 262,
-    tMAIN = 263,
-    tPRINTF = 264,
-    tIF = 265,
-    tELSE = 266,
-    tOPENBRACE = 267,
-    tCLOSEBRACE = 268,
-    tOPENBRACKET = 269,
-    tCLOSEBRACKET = 270,
-    tCONSTDECLARE = 271,
-    tCOMMA = 272,
-    tSEMICOLON = 273,
-    tNAME = 274,
-    tINTDECLARE = 275,
-    tINT = 276,
-    tEXPONENT = 277
+    tINF = 263,
+    tSUP = 264,
+    tMAIN = 265,
+    tPRINTF = 266,
+    tIF = 267,
+    tELSE = 268,
+    tOPENBRACE = 269,
+    tCLOSEBRACE = 270,
+    tOPENBRACKET = 271,
+    tCLOSEBRACKET = 272,
+    tCONSTDECLARE = 273,
+    tCOMMA = 274,
+    tSEMICOLON = 275,
+    tNAME = 276,
+    tINTDECLARE = 277,
+    tINT = 278,
+    tEXPONENT = 279
   };
 #endif
 /* Tokens.  */
@@ -73,33 +75,35 @@ extern int yydebug;
 #define tADD 260
 #define tSUB 261
 #define tEQ 262
-#define tMAIN 263
-#define tPRINTF 264
-#define tIF 265
-#define tELSE 266
-#define tOPENBRACE 267
-#define tCLOSEBRACE 268
-#define tOPENBRACKET 269
-#define tCLOSEBRACKET 270
-#define tCONSTDECLARE 271
-#define tCOMMA 272
-#define tSEMICOLON 273
-#define tNAME 274
-#define tINTDECLARE 275
-#define tINT 276
-#define tEXPONENT 277
+#define tINF 263
+#define tSUP 264
+#define tMAIN 265
+#define tPRINTF 266
+#define tIF 267
+#define tELSE 268
+#define tOPENBRACE 269
+#define tCLOSEBRACE 270
+#define tOPENBRACKET 271
+#define tCLOSEBRACKET 272
+#define tCONSTDECLARE 273
+#define tCOMMA 274
+#define tSEMICOLON 275
+#define tNAME 276
+#define tINTDECLARE 277
+#define tINT 278
+#define tEXPONENT 279
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 
 union YYSTYPE
 {
-#line 9 "compiler.y" /* yacc.c:1909  */
+#line 10 "compiler.y" /* yacc.c:1909  */
 
     int nb;
     char* str;
 
-#line 103 "y.tab.h" /* yacc.c:1909  */
+#line 107 "y.tab.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;

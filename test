@@ -1,10 +1,10 @@
 int main () {
     int a = 2;
-	int b, c = 1;
-	const int d = 45;
-	int e;
-	e = 4 + 4;
-	if ( a = 2) {
-		int g = 3;
-	}
+    int b = 2 + 2;
+    int c = a + b;
+    printf(c);
+    printf(10);
+    if( a = b) {
+    
+    }
 }

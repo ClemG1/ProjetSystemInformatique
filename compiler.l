@@ -27,6 +27,8 @@ separator [ \t]+
 "*" return(tMUL);
 "/" return(tDIV);
 "=" return(tEQ);
+'<' return(tINF);
+'>' return(tSUP);
 "(" return(tOPENBRACKET);
 ")" return(tCLOSEBRACKET);
 "," return(tCOMMA);

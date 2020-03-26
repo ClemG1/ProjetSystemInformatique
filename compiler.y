@@ -2,6 +2,7 @@
     #include <stdio.h>
 	#include <stdlib.h>
 	#include "tabsymbole.h"
+    #include "asm.h"
     int yylex();
     void yyerror(char * str);
 %}
@@ -11,32 +12,24 @@
     char* str;
 }
 
-%token tMUL tDIV tADD tSUB tEQ
+%token tMUL tDIV tADD tSUB tEQ tINF tSUP
 %token tMAIN tPRINTF tIF tELSE
 %token tOPENBRACE tCLOSEBRACE tOPENBRACKET tCLOSEBRACKET
 %token tCONSTDECLARE 
 %token tCOMMA tSEMICOLON
 %token <str> tNAME tINTDECLARE
 %token <nb> tINT tEXPONENT
-%type <nb> Expression 
-%type <nb> Value
 
-
-
-
-%right tEQ
+%right tEQ tINF tSUP
 %left tADD tSUB
 %left tMUL tDIV
-
-
-
 
 %start File;
 
 %%
 
     File : 
-		tINTDECLARE tMAIN {initTabSymbol();} tOPENBRACKET tCLOSEBRACKET tOPENBRACE Body tCLOSEBRACE {displayTab();};
+		tINTDECLARE tMAIN {initTabSymbol(); initInstruction();} tOPENBRACKET tCLOSEBRACKET tOPENBRACE Body tCLOSEBRACE {displayTab();translate();};
 
     Body :
         /*vide*/
@@ -63,9 +56,13 @@
 
     DefVar :
         tNAME {addRow($1);}
-        | tNAME tEQ  Value {
+        | tNAME tEQ  Expression {
 							addRow($1);
-							setInit($1);}
+							setInit($1);
+                            if(copyAllowed() == -1) {
+                                yyerror("Error : no temporary variable\n");
+                            }
+                            addInstruction(5,getAddress($1),getTemporaryAddress()-2,-1);deleteTemporary();}
         ;
     
     DefVarN :
@@ -74,31 +71,67 @@
         ;
     
     Value : 
-        tINT {$$=$1;}
+        tINT {addInstruction(6,getTemporaryAddress(),$1,-1);addTemporary();}
+        | tNAME {addInstruction(5,getTemporaryAddress(),getAddress($1),-1);addTemporary();}
         ;
 
     Allocation : 
 		tNAME tEQ Expression tSEMICOLON {if(setInit($1) == -1) {
 											yyerror("Error : Variable not declared\n");	
-										}};
+										}
+                                        if(copyAllowed() == -1) {
+                                            yyerror("Error : no temporary variable\n");
+                                        }
+                                        addInstruction(5,getAddress($1),getTemporaryAddress()-2,-1);deleteTemporary();
+                                        }
+        ;
 
     Expression :
-        Value {$$=$1;}
-        | Expression tADD Expression {$$ =$1+$3;}
-        | Expression tSUB Expression {$$ =$1-$3;}
-        | Expression tMUL Expression {$$ =$1*$3;}
-        | Expression tDIV Expression {$$ =$1/$3;}
-        | tSUB Expression {$$ =-$2;}
-        | tOPENBRACKET Expression tCLOSEBRACKET{$$ =$2;}
+        Value
+        | Expression tADD Expression {
+                                        if(operationAllowed() == -1) {
+                                            yyerror("Error : no temporary variable\n");
+                                        }
+                                        addInstruction(1,getTemporaryAddress()-4,getTemporaryAddress()-4,getTemporaryAddress()-2);deleteTemporary();
+                                    }
+        | Expression tSUB Expression {
+                                        if(operationAllowed() == -1) {
+                                            yyerror("Error : no temporary variable\n");
+                                        }
+                                        addInstruction(3,getTemporaryAddress()-4,getTemporaryAddress()-4,getTemporaryAddress()-2);deleteTemporary();
+                                    }
+        | Expression tMUL Expression {
+                                        if(operationAllowed() == -1) {
+                                            yyerror("Error : no temporary variable\n");
+                                        }
+                                        addInstruction(2,getTemporaryAddress()-4,getTemporaryAddress()-4,getTemporaryAddress()-2);deleteTemporary();
+                                    }
+        | Expression tDIV Expression {
+                                        if(operationAllowed() == -1) {
+                                            yyerror("Error : no temporary variable\n");
+                                        }
+                                        addInstruction(4,getTemporaryAddress()-4,getTemporaryAddress()-4,getTemporaryAddress()-2);deleteTemporary();
+                                    }
+        | tSUB {addInstruction(6,getTemporaryAddress(),0,-1);addTemporary();} Expression {
+                                                                                            if(operationAllowed() == -1) {
+                                                                                                yyerror("Error : no temporary variable\n");
+                                                                                            }
+                                                                                            addInstruction(3,getTemporaryAddress()-4,getTemporaryAddress()-4,getTemporaryAddress()-2);
+                                                                                            }
+        | tOPENBRACKET Expression tCLOSEBRACKET
         ;
 
     Function : 
-        tPRINTF tOPENBRACKET tNAME tCLOSEBRACKET tSEMICOLON {printf("%s",$3);}
-        | tPRINTF tOPENBRACKET Expression tCLOSEBRACKET tSEMICOLON {printf("%d",$3);}
+        tPRINTF tOPENBRACKET Expression tCLOSEBRACKET tSEMICOLON {
+                                                                    if(copyAllowed() == -1) {
+                                                                        yyerror("Error : no temporary variable\n");
+                                                                    }
+                                                                    addInstruction(12,getTemporaryAddress()-2,-1,-1); deleteTemporary();}
         ;
 	
 	Condition :
-		tIF tOPENBRACKET Test tCLOSEBRACKET tOPENBRACE {depthUp();} Body tCLOSEBRACE {depthDown();} Alternative;
+		tIF tOPENBRACKET Test tCLOSEBRACKET tOPENBRACE {depthUp();} Body tCLOSEBRACE {depthDown();} Alternative
+        ;
 
 	Alternative :
 		/*vide*/	
@@ -106,7 +139,10 @@
 		;
 
 	Test :
-		tNAME tEQ Value;
+		Value tEQ Value 
+        | Value tSUP Value
+        | Value tINF Value
+        ;
 
 %%
 void yyerror(char * str){printf("%s",str);}
