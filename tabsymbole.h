@@ -18,6 +18,7 @@ void deleteRow ();
 void addRow(char * name);
 int setInit (char * name);
 int getAddress (char * name);
+int getAddressCopy (char * name);
 void setIsConstant (int value);
 void setCurrentVtype (char * type);
 void displayTab();

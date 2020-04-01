@@ -64,11 +64,10 @@ void addRow(char * name) {
 //Affectation
 int setInit (char * name) {
 	int found = -1;
-    for (int k = 0; k < tabSymbolSize; k++) {
-        if( (strcmp(name,tabSymbol[k].name) == 0) && (currentDepth == tabSymbol[k].depth)) {
-            tabSymbol[k].init = 1;
-			found = 0;              
-        }
+    int address = getAddressCopy(name);
+    if (address != -1) {
+        tabSymbol[address/2].init = 1;
+        found = 0;
     }
 	return found;
 }
@@ -77,6 +76,16 @@ int getAddress (char * name) {
     int address = -1;
     for (int k = 0; k < tabSymbolSize; k++) {
         if( (strcmp(name,tabSymbol[k].name) == 0) && (currentDepth == tabSymbol[k].depth) ) {
+            address = tabSymbol[k].address;        
+        }       
+    }
+    return address;
+} 
+
+int getAddressCopy (char * name) {
+    int address = -1;
+    for (int k = 0; k < tabSymbolSize; k++) {
+        if( (strcmp(name,tabSymbol[k].name) == 0)) {
             address = tabSymbol[k].address;        
         }       
     }

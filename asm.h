@@ -16,6 +16,10 @@ int operationAllowed();
 
 int copyAllowed();
 
+void writeJump ();
+
+void writeJumpIF ();
+
 void translate();
 
 #endif

@@ -62,7 +62,7 @@
                             if(copyAllowed() == -1) {
                                 yyerror("Error : no temporary variable\n");
                             }
-                            addInstruction(5,getAddress($1),getTemporaryAddress()-2,-1);deleteTemporary();}
+                            addInstruction(5,getAddressCopy($1),getTemporaryAddress()-2,-1);deleteTemporary();}
         ;
     
     DefVarN :
@@ -82,7 +82,7 @@
                                         if(copyAllowed() == -1) {
                                             yyerror("Error : no temporary variable\n");
                                         }
-                                        addInstruction(5,getAddress($1),getTemporaryAddress()-2,-1);deleteTemporary();
+                                        addInstruction(5,getAddressCopy($1),getTemporaryAddress()-2,-1);deleteTemporary();
                                         }
         ;
 
@@ -130,18 +130,49 @@
         ;
 	
 	Condition :
-		tIF tOPENBRACKET Test tCLOSEBRACKET tOPENBRACE {depthUp();} Body tCLOSEBRACE {depthDown();} Alternative
+		tIF tOPENBRACKET Test {
+                                addInstruction(8,getTemporaryAddress()-2,-1,-1);
+                                deleteTemporary();
+                                } 
+                                tCLOSEBRACKET tOPENBRACE {depthUp();} Body tCLOSEBRACE {
+                                                                                        depthDown();
+                                                                                        writeJumpIF();
+                                                                                        } Alternative
         ;
 
 	Alternative :
 		/*vide*/	
-		| tELSE tOPENBRACE {depthUp();} Body tCLOSEBRACE {depthDown();}
+		| tELSE {
+                addInstruction(7,-1,-1,-1);
+                writeJumpIF();
+                } tOPENBRACE {depthUp();} Body tCLOSEBRACE {
+                                                            depthDown();
+                                                            writeJump();
+                                                            }
 		;
 
 	Test :
-		Value tEQ Value 
-        | Value tSUP Value
-        | Value tINF Value
+		Expression tEQ Expression {
+                                    if(operationAllowed() == -1) {
+                                        yyerror("Error : no temporary variable\n");
+                                    }
+                                    addInstruction(11,getTemporaryAddress()-4,getTemporaryAddress()-4,getTemporaryAddress()-2);
+                                    deleteTemporary();
+                                    }
+        | Expression tSUP Expression {
+                                    if(operationAllowed() == -1) {
+                                        yyerror("Error : no temporary variable\n");
+                                    }
+                                    addInstruction(10,getTemporaryAddress()-4,getTemporaryAddress()-4,getTemporaryAddress()-2);
+                                    deleteTemporary();
+                                    }
+        | Expression tINF Expression {
+                                    if(operationAllowed() == -1) {
+                                        yyerror("Error : no temporary variable\n");
+                                    }
+                                    addInstruction(9,getTemporaryAddress()-4,getTemporaryAddress()-4,getTemporaryAddress()-2);
+                                    deleteTemporary();
+                                    }
         ;
 
 %%

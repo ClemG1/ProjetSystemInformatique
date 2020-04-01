@@ -85,6 +85,34 @@ int copyAllowed() {
 	return result;
 }
 
+void writeJump () {
+	int currentIndex = instructionIndex;
+	int found = 0;
+	int k = currentIndex;
+
+	while((found == 0) && (k > 0)) {
+		k--;
+		if(instructionTab[k][0] == 7) {
+			found = 1;
+			instructionTab[k][1] = currentIndex;
+		}
+	}
+}
+
+void writeJumpIF () {
+	int currentIndex = instructionIndex;
+	int found = 0;
+	int k = currentIndex;
+
+	while((found == 0) && (k > 0)) {
+		k--;
+		if(instructionTab[k][0] == 8) {
+			found = 1;
+			instructionTab[k][2] = currentIndex;
+		}
+	}
+}
+
 void translate() {
 	int finished = 0;
 	int k = 0;
