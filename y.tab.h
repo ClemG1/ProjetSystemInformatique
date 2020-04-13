@@ -66,7 +66,8 @@ extern int yydebug;
     tNAME = 276,
     tINTDECLARE = 277,
     tINT = 278,
-    tEXPONENT = 279
+    tEXPONENT = 279,
+    tWHILE = 280
   };
 #endif
 /* Tokens.  */
@@ -92,6 +93,7 @@ extern int yydebug;
 #define tINTDECLARE 277
 #define tINT 278
 #define tEXPONENT 279
+#define tWHILE 280
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
@@ -103,7 +105,7 @@ union YYSTYPE
     int nb;
     char* str;
 
-#line 107 "y.tab.h" /* yacc.c:1909  */
+#line 109 "y.tab.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;

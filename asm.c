@@ -65,6 +65,10 @@ int getTemporaryAddress() {
 	return temporaryAddress;
 }
 
+int getInstructionAddress() {
+	return instructionIndex;
+}
+
 void deleteTemporary() {
 	temporaryAddress -= 2;
 }
@@ -92,7 +96,7 @@ void writeJump () {
 
 	while((found == 0) && (k > 0)) {
 		k--;
-		if(instructionTab[k][0] == 7) {
+		if((instructionTab[k][0] == 7) && (instructionTab[k][1] == -1)){
 			found = 1;
 			instructionTab[k][1] = currentIndex;
 		}
@@ -106,7 +110,7 @@ void writeJumpIF () {
 
 	while((found == 0) && (k > 0)) {
 		k--;
-		if(instructionTab[k][0] == 8) {
+		if((instructionTab[k][0] == 8) && (instructionTab[k][2] == -1)) {
 			found = 1;
 			instructionTab[k][2] = currentIndex;
 		}
@@ -126,51 +130,51 @@ void translate() {
 
 					//ADD
 				case 1 :
-					printf("ADD %d %d %d\n",instructionTab[k][1],instructionTab[k][2],instructionTab[k][3]);
+					printf("%d- ADD %d %d %d\n",k,instructionTab[k][1],instructionTab[k][2],instructionTab[k][3]);
 					break;
 					//MUL
 				case 2 :
-					printf("SUB %d %d %d\n",instructionTab[k][1],instructionTab[k][2],instructionTab[k][3]);
+					printf("%d- SUB %d %d %d\n",k,instructionTab[k][1],instructionTab[k][2],instructionTab[k][3]);
 					break;
 					//SUB
 				case 3 :
-					printf("MUL %d %d %d\n",instructionTab[k][1],instructionTab[k][2],instructionTab[k][3]);
+					printf("%d- MUL %d %d %d\n",k,instructionTab[k][1],instructionTab[k][2],instructionTab[k][3]);
 					break;
 					//DIV
 				case 4 :
-					printf("DIV %d %d %d\n",instructionTab[k][1],instructionTab[k][2],instructionTab[k][3]);
+					printf("%d- DIV %d %d %d\n",k,instructionTab[k][1],instructionTab[k][2],instructionTab[k][3]);
 					break;
 					//COP (copy)
 				case 5 :
-					printf("COP %d %d %d\n",instructionTab[k][1],instructionTab[k][2],instructionTab[k][3]);
+					printf("%d- COP %d %d %d\n",k,instructionTab[k][1],instructionTab[k][2],instructionTab[k][3]);
 					break;
 					//AFC (affectation)
 				case 6 :
-					printf("AFC %d %d %d\n",instructionTab[k][1],instructionTab[k][2],instructionTab[k][3]);
+					printf("%d- AFC %d %d %d\n",k,instructionTab[k][1],instructionTab[k][2],instructionTab[k][3]);
 					break;
 					//JMP (jump)
 				case 7 :
-					printf("JMP %d %d %d\n",instructionTab[k][1],instructionTab[k][2],instructionTab[k][3]);
+					printf("%d- JMP %d %d %d\n",k,instructionTab[k][1],instructionTab[k][2],instructionTab[k][3]);
 					break;
 					//JMF (jump if)
 				case 8 :
-					printf("JMF %d %d %d\n",instructionTab[k][1],instructionTab[k][2],instructionTab[k][3]);
+					printf("%d- JMF %d %d %d\n",k,instructionTab[k][1],instructionTab[k][2],instructionTab[k][3]);
 					break;
 					//INF
 				case 9 :
-					printf("INF %d %d %d\n",instructionTab[k][1],instructionTab[k][2],instructionTab[k][3]);
+					printf("%d- INF %d %d %d\n",k,instructionTab[k][1],instructionTab[k][2],instructionTab[k][3]);
 					break;
 					//SUP
 				case 10 :
-					printf("SUP %d %d %d\n",instructionTab[k][1],instructionTab[k][2],instructionTab[k][3]);
+					printf("%d- SUP %d %d %d\n",k,instructionTab[k][1],instructionTab[k][2],instructionTab[k][3]);
 					break;
 					//EQU
 				case 11 :
-					printf("EQU %d %d %d\n",instructionTab[k][1],instructionTab[k][2],instructionTab[k][3]);
+					printf("%d- EQU %d %d %d\n",k,instructionTab[k][1],instructionTab[k][2],instructionTab[k][3]);
 					break;
 					//PRI (print)
 				case 12 :
-					printf("PRI %d %d %d\n",instructionTab[k][1],instructionTab[k][2],instructionTab[k][3]);
+					printf("%d- PRI %d %d %d\n",k,instructionTab[k][1],instructionTab[k][2],instructionTab[k][3]);
 					break;
 				default :
 					printf("Error : code unknown\n");

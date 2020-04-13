@@ -15,6 +15,7 @@ separator [ \t]+
 "main" return(tMAIN);
 "if" return(tIF);
 "else" return(tELSE);
+"while" return(tWHILE);
 "{" return(tOPENBRACE);
 "}" return(tCLOSEBRACE);
 "const" return(tCONSTDECLARE);

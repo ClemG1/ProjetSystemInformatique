@@ -10,6 +10,8 @@ void addTemporary();
 
 int getTemporaryAddress();
 
+int getInstructionAddress();
+
 void deleteTemporary();
 
 int operationAllowed();

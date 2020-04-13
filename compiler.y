@@ -18,7 +18,7 @@
 %token tCONSTDECLARE 
 %token tCOMMA tSEMICOLON
 %token <str> tNAME tINTDECLARE
-%token <nb> tINT tEXPONENT
+%token <nb> tINT tEXPONENT tWHILE
 
 %right tEQ tINF tSUP
 %left tADD tSUB
@@ -134,14 +134,21 @@
                                 addInstruction(8,getTemporaryAddress()-2,-1,-1);
                                 deleteTemporary();
                                 } 
-                                tCLOSEBRACKET tOPENBRACE {depthUp();} Body tCLOSEBRACE {
-                                                                                        depthDown();
-                                                                                        writeJumpIF();
-                                                                                        } Alternative
+                                tCLOSEBRACKET tOPENBRACE {depthUp();} Body tCLOSEBRACE {depthDown();} Alternative
+        | tWHILE {$1 = getInstructionAddress();} tOPENBRACKET Test {
+                                    addInstruction(8,getTemporaryAddress()-2,-1,-1);
+                                    deleteTemporary();
+                                    addInstruction(7,-1,-1,-1);
+                                    writeJumpIF();
+                                    } 
+                                    tCLOSEBRACKET tOPENBRACE {depthUp();} Body {
+                                                                                addInstruction(7,$1,-1,-1);
+                                                                                writeJump();
+                                                                                } tCLOSEBRACE {depthDown();}
         ;
 
 	Alternative :
-		/*vide*/	
+		/*vide*/ {writeJumpIF();}	
 		| tELSE {
                 addInstruction(7,-1,-1,-1);
                 writeJumpIF();
