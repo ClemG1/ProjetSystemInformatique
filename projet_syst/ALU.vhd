@@ -64,7 +64,18 @@ begin
 			resultat <= val_aux (7 downto 0);
 			C <= val_aux(8);
 			N <= '0';
-			O <= '0';
+			if (A(7)=B(7))AND(A(7)/=resultat(7)) then
+				O <= '1';
+			else
+				O <= '0';
+			end if;
+			if val_aux="000000000" then
+				Z<='1';
+			else
+				Z<='0';
+			end if;
+			
+			
 		
 		when "010" =>
 			val_aux <= (b"0" & A) - (b"0" & B);
@@ -76,7 +87,18 @@ begin
 				N <= '1';
 			end if;
 			C <= '0';
-			O <= '0';
+			if (A(7)/=B(7))AND(B(7)=resultat(7)) then
+				O <= '1';
+			else
+				O <= '0';
+			end if;
+			if val_aux="000000000" then
+				Z<='1';
+			else
+				Z<='0';
+			end if;
+			
+			
 			
 		when "011" =>
 			val_aux_mul <= A * B;
@@ -87,9 +109,19 @@ begin
 				O <= '1';
 			end if;
 			C <= '0';
-			-- N <= ?? depend des signes d'entree
+			if (A(7)/=B(7)) then
+				N <= '1';
+			else
+				N <= '0';
+			end if;
+			if (A="000000000")OR(B="000000000") then
+				Z<='1';
+			else
+				Z<='0';
+			end if;
 			
 	end case;
+	S<=resultat;
 			
 		
 end process;
