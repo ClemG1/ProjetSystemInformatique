@@ -35,6 +35,18 @@
       <association xil_pn:name="PostRouteSimulation" xil_pn:seqID="99"/>
       <association xil_pn:name="PostTranslateSimulation" xil_pn:seqID="99"/>
     </file>
+    <file xil_pn:name="banc_instr.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="93"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="93"/>
+    </file>
+    <file xil_pn:name="banc_mem.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="94"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="94"/>
+    </file>
+    <file xil_pn:name="test_banc_mem.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="95"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="95"/>
+    </file>
   </files>
 
   <properties>
