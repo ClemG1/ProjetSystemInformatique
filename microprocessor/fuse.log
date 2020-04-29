@@ -1,24 +1,22 @@
-Running: /home/gehin/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -lib secureip -o /home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/test_bench_alu_isim_beh.exe -prj /home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/test_bench_alu_beh.prj work.test_bench_alu 
+Running: /home/gehin/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -lib secureip -o /home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/test_bench_register_file_isim_beh.exe -prj /home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/test_bench_register_file_beh.prj test_bench_register_file 
 ISim P.20131013 (signature 0xfbc00daa)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
 Determining compilation order of HDL files
-Parsing VHDL file "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/alu.vhd" into library work
-Parsing VHDL file "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/test_bench_alu.vhd" into library work
+Parsing VHDL file "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/register_file.vhd" into library work
+Parsing VHDL file "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/test_bench_register_file.vhd" into library work
 Starting static elaboration
 Completed static elaboration
-Fuse Memory Usage: 98940 KB
-Fuse CPU Usage: 1220 ms
+Fuse Memory Usage: 97572 KB
+Fuse CPU Usage: 1300 ms
 Compiling package standard
 Compiling package std_logic_1164
-Compiling package std_logic_arith
-Compiling package std_logic_unsigned
 Compiling package numeric_std
-Compiling architecture behavioral of entity alu [alu_default]
-Compiling architecture behavior of entity test_bench_alu
+Compiling architecture behavioral of entity register_file [register_file_default]
+Compiling architecture behavior of entity test_bench_register_file
 Time Resolution for simulation is 1ps.
-Compiled 8 VHDL Units
-Built simulation executable /home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/test_bench_alu_isim_beh.exe
-Fuse Memory Usage: 674816 KB
-Fuse CPU Usage: 1340 ms
+Compiled 6 VHDL Units
+Built simulation executable /home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/test_bench_register_file_isim_beh.exe
+Fuse Memory Usage: 669160 KB
+Fuse CPU Usage: 1380 ms
 GCC CPU Usage: 230 ms

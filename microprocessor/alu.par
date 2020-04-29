@@ -1,7 +1,7 @@
 Release 14.7 par P.20131013 (lin64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-gehin-laptop::  Wed Apr 29 14:10:47 2020
+gehin-laptop::  Wed Apr 29 14:41:32 2020
 
 par -w -intstyle ise -ol high -mt off alu_map.ncd alu.ncd alu.pcf 
 
@@ -87,11 +87,11 @@ Finished initial Timing Analysis.  REAL time: 3 secs
 Starting Router
 
 
-Phase  1  : 306 unrouted;      REAL time: 4 secs 
+Phase  1  : 306 unrouted;      REAL time: 3 secs 
 
-Phase  2  : 174 unrouted;      REAL time: 4 secs 
+Phase  2  : 174 unrouted;      REAL time: 3 secs 
 
-Phase  3  : 100 unrouted;      REAL time: 4 secs 
+Phase  3  : 100 unrouted;      REAL time: 3 secs 
 
 Phase  4  : 100 unrouted; (Par is working to improve performance)     REAL time: 4 secs 
 
@@ -128,8 +128,8 @@ Generating Pad Report.
 
 All signals are completely routed.
 
-Total REAL time to PAR completion: 5 secs 
-Total CPU time to PAR completion: 5 secs 
+Total REAL time to PAR completion: 4 secs 
+Total CPU time to PAR completion: 4 secs 
 
 Peak Memory Usage:  614 MB
 
