@@ -1,0 +1,17 @@
+
+
+
+// Instantiate the module
+register_file instance_name (
+    .A_Address(A_Address), 
+    .B_Address(B_Address), 
+    .W_Address(W_Address), 
+    .W(W), 
+    .DATA(DATA), 
+    .RST(RST), 
+    .CLK(CLK), 
+    .QA(QA), 
+    .QB(QB)
+    );
+
+

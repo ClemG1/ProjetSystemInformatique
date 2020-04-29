@@ -10,7 +10,7 @@ Target Device  : xc6slx16
 Target Package : csg324
 Target Speed   : -3
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Wed Apr 29 14:10:38 2020
+Mapped Date    : Wed Apr 29 14:41:24 2020
 
 Mapping design into LUTs...
 Running directed packing...
@@ -20,7 +20,7 @@ INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
    (.mrp).
 Running timing-driven placement...
 Total REAL time at the beginning of Placer: 4 secs 
-Total CPU  time at the beginning of Placer: 4 secs 
+Total CPU  time at the beginning of Placer: 3 secs 
 
 Phase 1.1  Initial Placement Analysis
 Phase 1.1  Initial Placement Analysis (Checksum:11d5) REAL time: 4 secs 
@@ -43,18 +43,18 @@ Phase 6.30  Global Clock Region Assignment (Checksum:11d5) REAL time: 5 secs
 
 Phase 7.3  Local Placement Optimization
 .......
-Phase 7.3  Local Placement Optimization (Checksum:26b9ea7e) REAL time: 6 secs 
+Phase 7.3  Local Placement Optimization (Checksum:26b9ea7e) REAL time: 5 secs 
 
 Phase 8.5  Local Placement Optimization
-Phase 8.5  Local Placement Optimization (Checksum:26b9ea7e) REAL time: 6 secs 
+Phase 8.5  Local Placement Optimization (Checksum:26b9ea7e) REAL time: 5 secs 
 
 Phase 9.8  Global Placement
 ......................
 ............
-Phase 9.8  Global Placement (Checksum:93989721) REAL time: 6 secs 
+Phase 9.8  Global Placement (Checksum:93989721) REAL time: 5 secs 
 
 Phase 10.5  Local Placement Optimization
-Phase 10.5  Local Placement Optimization (Checksum:93989721) REAL time: 6 secs 
+Phase 10.5  Local Placement Optimization (Checksum:93989721) REAL time: 5 secs 
 
 Phase 11.18  Placement Optimization
 Phase 11.18  Placement Optimization (Checksum:5567fb9e) REAL time: 6 secs 
@@ -66,7 +66,7 @@ Phase 13.34  Placement Validation
 Phase 13.34  Placement Validation (Checksum:5567fb9e) REAL time: 6 secs 
 
 Total REAL time to Placer completion: 6 secs 
-Total CPU  time to Placer completion: 6 secs 
+Total CPU  time to Placer completion: 5 secs 
 Running post-placement packing...
 Writing output files...
 
