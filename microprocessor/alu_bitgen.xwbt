@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/alu.ncd
+OUTFILE=/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/alu.bit
+FAMILY=Spartan6
+PART=xc6slx16-3csg324
+WORKINGDIR=/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor
+LICENSE=WebPack
+USER_INFO=211951500_0_0_933
