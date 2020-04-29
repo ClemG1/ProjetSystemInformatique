@@ -32,7 +32,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity banc_instr is
     Port ( Adresse : in  STD_LOGIC_VECTOR (7 downto 0);
            CLK : in  STD_LOGIC;
-           D_OUT : out  STD_LOGIC_VECTOR (7 downto 0));
+           D_OUT : out  STD_LOGIC_VECTOR (31 downto 0));
 end banc_instr;
 
 architecture Behavioral of banc_instr is
