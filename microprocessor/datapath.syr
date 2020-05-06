@@ -1,0 +1,543 @@
+Release 14.7 - xst P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.04 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.04 secs
+ 
+--> 
+Reading design: datapath.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "datapath.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "datapath"
+Output Format                      : NGC
+Target Device                      : xc6slx16-3-csg324
+
+---- Source Options
+Top Module Name                    : datapath
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Parsing VHDL file "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/register_file.vhd" into library work
+Parsing entity <register_file>.
+Parsing architecture <Behavioral> of entity <register_file>.
+Parsing VHDL file "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/banc_instr.vhd" into library work
+Parsing entity <banc_instr>.
+Parsing architecture <Behavioral> of entity <banc_instr>.
+Parsing VHDL file "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/datapath.vhd" into library work
+Parsing entity <datapath>.
+Parsing architecture <Behavioral> of entity <datapath>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating entity <datapath> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <register_file> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <banc_instr> (architecture <Behavioral>) from library <work>.
+WARNING:HDLCompiler:1127 - "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/datapath.vhd" Line 110: Assignment to c_li_di ignored, since the identifier is never used
+WARNING:HDLCompiler:634 - "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/datapath.vhd" Line 71: Net <A_RF[3]> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/datapath.vhd" Line 72: Net <B_RF[3]> does not have a driver.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <datapath>.
+    Related source file is "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/datapath.vhd".
+WARNING:Xst:653 - Signal <A_RF> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <B_RF> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+    Found 8-bit register for signal <A_LI_DI>.
+    Found 8-bit register for signal <B_LI_DI>.
+    Found 8-bit register for signal <OP_DI_EX>.
+    Found 8-bit register for signal <A_DI_EX>.
+    Found 8-bit register for signal <B_DI_EX>.
+    Found 8-bit register for signal <OP_EX_MEM>.
+    Found 8-bit register for signal <A_EX_MEM>.
+    Found 8-bit register for signal <B_EX_MEM>.
+    Found 8-bit register for signal <OP_MEM_RE>.
+    Found 4-bit register for signal <A_MEM_RE<3:0>>.
+    Found 8-bit register for signal <B_MEM_RE>.
+    Found 8-bit register for signal <OP_LI_DI>.
+    Found 8-bit adder for signal <INSTR_NUM> created at line 96.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  92 D-type flip-flop(s).
+Unit <datapath> synthesized.
+
+Synthesizing Unit <register_file>.
+    Related source file is "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/register_file.vhd".
+    Found 8-bit register for signal <QB>.
+    Found 8-bit register for signal <registers<0>>.
+    Found 8-bit register for signal <QA>.
+    Summary:
+	inferred  24 D-type flip-flop(s).
+	inferred   2 Multiplexer(s).
+Unit <register_file> synthesized.
+
+Synthesizing Unit <banc_instr>.
+    Related source file is "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/banc_instr.vhd".
+WARNING:Xst:2999 - Signal 'signalTab', unconnected in block 'banc_instr', is tied to its initial value.
+    Found 256x32-bit single-port Read Only RAM <Mram_signalTab> for signal <signalTab>.
+    Found 32-bit register for signal <D_OUT>.
+    Summary:
+	inferred   1 RAM(s).
+	inferred  32 D-type flip-flop(s).
+Unit <banc_instr> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 1
+ 256x32-bit single-port Read Only RAM                  : 1
+# Adders/Subtractors                                   : 1
+ 8-bit adder                                           : 1
+# Registers                                            : 16
+ 32-bit register                                       : 1
+ 4-bit register                                        : 1
+ 8-bit register                                        : 14
+# Multiplexers                                         : 2
+ 8-bit 2-to-1 multiplexer                              : 2
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+WARNING:Xst:2677 - Node <D_OUT_0> of sequential type is unconnected in block <banc_instr_instance>.
+WARNING:Xst:2677 - Node <D_OUT_1> of sequential type is unconnected in block <banc_instr_instance>.
+WARNING:Xst:2677 - Node <D_OUT_2> of sequential type is unconnected in block <banc_instr_instance>.
+WARNING:Xst:2677 - Node <D_OUT_3> of sequential type is unconnected in block <banc_instr_instance>.
+WARNING:Xst:2677 - Node <D_OUT_4> of sequential type is unconnected in block <banc_instr_instance>.
+WARNING:Xst:2677 - Node <D_OUT_5> of sequential type is unconnected in block <banc_instr_instance>.
+WARNING:Xst:2677 - Node <D_OUT_6> of sequential type is unconnected in block <banc_instr_instance>.
+WARNING:Xst:2677 - Node <D_OUT_7> of sequential type is unconnected in block <banc_instr_instance>.
+WARNING:Xst:2677 - Node <D_OUT_20> of sequential type is unconnected in block <banc_instr_instance>.
+WARNING:Xst:2677 - Node <D_OUT_21> of sequential type is unconnected in block <banc_instr_instance>.
+WARNING:Xst:2677 - Node <D_OUT_22> of sequential type is unconnected in block <banc_instr_instance>.
+WARNING:Xst:2677 - Node <D_OUT_23> of sequential type is unconnected in block <banc_instr_instance>.
+WARNING:Xst:2677 - Node <A_LI_DI_4> of sequential type is unconnected in block <datapath>.
+WARNING:Xst:2677 - Node <A_LI_DI_5> of sequential type is unconnected in block <datapath>.
+WARNING:Xst:2677 - Node <A_LI_DI_6> of sequential type is unconnected in block <datapath>.
+WARNING:Xst:2677 - Node <A_LI_DI_7> of sequential type is unconnected in block <datapath>.
+WARNING:Xst:2677 - Node <A_DI_EX_4> of sequential type is unconnected in block <datapath>.
+WARNING:Xst:2677 - Node <A_DI_EX_5> of sequential type is unconnected in block <datapath>.
+WARNING:Xst:2677 - Node <A_DI_EX_6> of sequential type is unconnected in block <datapath>.
+WARNING:Xst:2677 - Node <A_DI_EX_7> of sequential type is unconnected in block <datapath>.
+WARNING:Xst:2677 - Node <A_EX_MEM_4> of sequential type is unconnected in block <datapath>.
+WARNING:Xst:2677 - Node <A_EX_MEM_5> of sequential type is unconnected in block <datapath>.
+WARNING:Xst:2677 - Node <A_EX_MEM_6> of sequential type is unconnected in block <datapath>.
+WARNING:Xst:2677 - Node <A_EX_MEM_7> of sequential type is unconnected in block <datapath>.
+
+Synthesizing (advanced) Unit <banc_instr>.
+INFO:Xst:3226 - The RAM <Mram_signalTab> will be implemented as a BLOCK RAM, absorbing the following register(s): <D_OUT>
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 256-word x 32-bit                   |          |
+    |     mode           | write-first                         |          |
+    |     clkA           | connected to signal <CLK>           | rise     |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <Adresse>       |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <D_OUT>         |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+Unit <banc_instr> synthesized (advanced).
+WARNING:Xst:2677 - Node <A_LI_DI_4> of sequential type is unconnected in block <datapath>.
+WARNING:Xst:2677 - Node <A_LI_DI_5> of sequential type is unconnected in block <datapath>.
+WARNING:Xst:2677 - Node <A_LI_DI_6> of sequential type is unconnected in block <datapath>.
+WARNING:Xst:2677 - Node <A_LI_DI_7> of sequential type is unconnected in block <datapath>.
+WARNING:Xst:2677 - Node <A_DI_EX_4> of sequential type is unconnected in block <datapath>.
+WARNING:Xst:2677 - Node <A_DI_EX_5> of sequential type is unconnected in block <datapath>.
+WARNING:Xst:2677 - Node <A_DI_EX_6> of sequential type is unconnected in block <datapath>.
+WARNING:Xst:2677 - Node <A_DI_EX_7> of sequential type is unconnected in block <datapath>.
+WARNING:Xst:2677 - Node <A_EX_MEM_4> of sequential type is unconnected in block <datapath>.
+WARNING:Xst:2677 - Node <A_EX_MEM_5> of sequential type is unconnected in block <datapath>.
+WARNING:Xst:2677 - Node <A_EX_MEM_6> of sequential type is unconnected in block <datapath>.
+WARNING:Xst:2677 - Node <A_EX_MEM_7> of sequential type is unconnected in block <datapath>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 1
+ 256x32-bit single-port block Read Only RAM            : 1
+# Adders/Subtractors                                   : 1
+ 8-bit adder                                           : 1
+# Registers                                            : 104
+ Flip-Flops                                            : 104
+# Multiplexers                                         : 16
+ 1-bit 2-to-1 multiplexer                              : 16
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+INFO:Xst:2261 - The FF/Latch <QB_2> in Unit <register_file> is equivalent to the following FF/Latch, which will be removed : <QA_2> 
+INFO:Xst:2261 - The FF/Latch <QB_3> in Unit <register_file> is equivalent to the following FF/Latch, which will be removed : <QA_3> 
+INFO:Xst:2261 - The FF/Latch <QB_4> in Unit <register_file> is equivalent to the following FF/Latch, which will be removed : <QA_4> 
+INFO:Xst:2261 - The FF/Latch <QB_5> in Unit <register_file> is equivalent to the following FF/Latch, which will be removed : <QA_5> 
+INFO:Xst:2261 - The FF/Latch <QB_6> in Unit <register_file> is equivalent to the following FF/Latch, which will be removed : <QA_6> 
+INFO:Xst:2261 - The FF/Latch <QB_7> in Unit <register_file> is equivalent to the following FF/Latch, which will be removed : <QA_7> 
+INFO:Xst:2261 - The FF/Latch <QB_0> in Unit <register_file> is equivalent to the following FF/Latch, which will be removed : <QA_0> 
+INFO:Xst:2261 - The FF/Latch <QB_1> in Unit <register_file> is equivalent to the following FF/Latch, which will be removed : <QA_1> 
+WARNING:Xst:2170 - Unit MTP_ : the following signal(s) form a combinatorial loop: INSTR_NUM<5>.
+WARNING:Xst:2170 - Unit MTP_ : the following signal(s) form a combinatorial loop: INSTR_NUM<2>.
+WARNING:Xst:2170 - Unit MTP_ : the following signal(s) form a combinatorial loop: INSTR_NUM<6>.
+WARNING:Xst:2170 - Unit MTP_ : the following signal(s) form a combinatorial loop: INSTR_NUM<3>.
+WARNING:Xst:2170 - Unit MTP_ : the following signal(s) form a combinatorial loop: INSTR_NUM<0>.
+WARNING:Xst:2170 - Unit MTP_ : the following signal(s) form a combinatorial loop: INSTR_NUM<7>.
+WARNING:Xst:2170 - Unit MTP_ : the following signal(s) form a combinatorial loop: INSTR_NUM<4>.
+WARNING:Xst:2170 - Unit MTP_ : the following signal(s) form a combinatorial loop: INSTR_NUM<1>.
+WARNING:Xst:2170 - Unit datapath : the following signal(s) form a combinatorial loop: INSTR_NUM<5>.
+WARNING:Xst:2170 - Unit datapath : the following signal(s) form a combinatorial loop: INSTR_NUM<2>.
+WARNING:Xst:2170 - Unit datapath : the following signal(s) form a combinatorial loop: INSTR_NUM<6>.
+WARNING:Xst:2170 - Unit datapath : the following signal(s) form a combinatorial loop: INSTR_NUM<3>.
+WARNING:Xst:2170 - Unit datapath : the following signal(s) form a combinatorial loop: INSTR_NUM<0>.
+WARNING:Xst:2170 - Unit datapath : the following signal(s) form a combinatorial loop: INSTR_NUM<7>.
+WARNING:Xst:2170 - Unit datapath : the following signal(s) form a combinatorial loop: INSTR_NUM<4>.
+WARNING:Xst:2170 - Unit datapath : the following signal(s) form a combinatorial loop: INSTR_NUM<1>.
+
+Optimizing unit <datapath> ...
+
+Optimizing unit <register_file> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block datapath, actual ratio is 1.
+
+Final Macro Processing ...
+
+Processing Unit <datapath> :
+	Found 4-bit shift register for signal <OP_MEM_RE_0>.
+	Found 4-bit shift register for signal <OP_MEM_RE_1>.
+	Found 4-bit shift register for signal <OP_MEM_RE_2>.
+	Found 4-bit shift register for signal <OP_MEM_RE_3>.
+	Found 4-bit shift register for signal <OP_MEM_RE_4>.
+	Found 4-bit shift register for signal <OP_MEM_RE_5>.
+	Found 4-bit shift register for signal <OP_MEM_RE_6>.
+	Found 4-bit shift register for signal <OP_MEM_RE_7>.
+	Found 4-bit shift register for signal <A_MEM_RE_0>.
+	Found 4-bit shift register for signal <A_MEM_RE_1>.
+	Found 4-bit shift register for signal <A_MEM_RE_2>.
+	Found 4-bit shift register for signal <A_MEM_RE_3>.
+	Found 4-bit shift register for signal <B_MEM_RE_0>.
+	Found 4-bit shift register for signal <B_MEM_RE_1>.
+	Found 4-bit shift register for signal <B_MEM_RE_2>.
+	Found 4-bit shift register for signal <B_MEM_RE_3>.
+	Found 4-bit shift register for signal <B_MEM_RE_4>.
+	Found 4-bit shift register for signal <B_MEM_RE_5>.
+	Found 4-bit shift register for signal <B_MEM_RE_6>.
+	Found 4-bit shift register for signal <B_MEM_RE_7>.
+Unit <datapath> processed.
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 16
+ Flip-Flops                                            : 16
+# Shift Registers                                      : 20
+ 4-bit shift register                                  : 20
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : datapath.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 30
+#      GND                         : 1
+#      INV                         : 1
+#      LUT2                        : 2
+#      LUT3                        : 11
+#      LUT4                        : 9
+#      LUT5                        : 1
+#      LUT6                        : 4
+#      VCC                         : 1
+# FlipFlops/Latches                : 36
+#      FD                          : 8
+#      FDE                         : 20
+#      FDRE                        : 8
+# RAMS                             : 1
+#      RAMB16BWER                  : 1
+# Shift Registers                  : 20
+#      SRLC16E                     : 20
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 17
+#      IBUF                        : 1
+#      OBUF                        : 16
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx16csg324-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:              36  out of  18224     0%  
+ Number of Slice LUTs:                   48  out of   9112     0%  
+    Number used as Logic:                28  out of   9112     0%  
+    Number used as Memory:               20  out of   2176     0%  
+       Number used as SRL:               20
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:     48
+   Number with an unused Flip Flop:      12  out of     48    25%  
+   Number with an unused LUT:             0  out of     48     0%  
+   Number of fully used LUT-FF pairs:    36  out of     48    75%  
+   Number of unique control sets:         3
+
+IO Utilization: 
+ Number of IOs:                          18
+ Number of bonded IOBs:                  18  out of    232     7%  
+
+Specific Feature Utilization:
+ Number of Block RAM/FIFO:                1  out of     32     3%  
+    Number using Block RAM only:          1
+ Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+CLK                                | BUFGP                  | 57    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: 3.008ns (Maximum Frequency: 332.480MHz)
+   Minimum input arrival time before clock: 2.454ns
+   Maximum output required time after clock: 3.634ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'CLK'
+  Clock period: 3.008ns (frequency: 332.480MHz)
+  Total number of paths / destination ports: 264 / 64
+-------------------------------------------------------------------------
+Delay:               3.008ns (Levels of Logic = 2)
+  Source:            OP_MEM_RE_7 (FF)
+  Destination:       register_file_instance/QB_7 (FF)
+  Source Clock:      CLK rising
+  Destination Clock: CLK rising
+
+  Data Path: OP_MEM_RE_7 to register_file_instance/QB_7
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              1   0.447   0.944  OP_MEM_RE_7 (OP_MEM_RE_7)
+     LUT6:I0->O           16   0.203   1.109  register_file_instance/W_W_Address[3]_AND_32_o2 (register_file_instance/W_W_Address[3]_AND_32_o2)
+     LUT4:I2->O            1   0.203   0.000  register_file_instance/B_Address[3]_DATA[7]_mux_38_OUT<7>1 (register_file_instance/B_Address[3]_DATA[7]_mux_38_OUT<7>)
+     FD:D                      0.102          register_file_instance/QB_7
+    ----------------------------------------
+    Total                      3.008ns (0.955ns logic, 2.053ns route)
+                                       (31.8% logic, 68.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'CLK'
+  Total number of paths / destination ports: 8 / 8
+-------------------------------------------------------------------------
+Offset:              2.454ns (Levels of Logic = 1)
+  Source:            RST (PAD)
+  Destination:       register_file_instance/registers_0_7 (FF)
+  Destination Clock: CLK rising
+
+  Data Path: RST to register_file_instance/registers_0_7
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             8   1.222   0.802  RST_IBUF (RST_IBUF)
+     FDRE:R                    0.430          register_file_instance/registers_0_0
+    ----------------------------------------
+    Total                      2.454ns (1.652ns logic, 0.802ns route)
+                                       (67.3% logic, 32.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'CLK'
+  Total number of paths / destination ports: 16 / 16
+-------------------------------------------------------------------------
+Offset:              3.634ns (Levels of Logic = 1)
+  Source:            register_file_instance/QB_7 (FF)
+  Destination:       REGISTER_OUT_1<7> (PAD)
+  Source Clock:      CLK rising
+
+  Data Path: register_file_instance/QB_7 to REGISTER_OUT_1<7>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               2   0.447   0.616  register_file_instance/QB_7 (register_file_instance/QB_7)
+     OBUF:I->O                 2.571          REGISTER_OUT_1_7_OBUF (REGISTER_OUT_1<7>)
+    ----------------------------------------
+    Total                      3.634ns (3.018ns logic, 0.616ns route)
+                                       (83.0% logic, 17.0% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock CLK
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+CLK            |    3.008|         |         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 5.00 secs
+Total CPU time to Xst completion: 5.02 secs
+ 
+--> 
+
+
+Total memory usage is 398408 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   58 (   0 filtered)
+Number of infos    :    9 (   0 filtered)
+

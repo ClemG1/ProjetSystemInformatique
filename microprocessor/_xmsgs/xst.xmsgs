@@ -5,5 +5,8 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
+<msg type="error" file="HDLCompiler" num="1030" delta="new" >"/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/banc_instr.vhd" Line 56: Cannot open file &apos;<arg fmt="%s" index="1">init.exe</arg>&apos;.
+</msg>
+
 </messages>
 

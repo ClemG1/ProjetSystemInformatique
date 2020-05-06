@@ -19,8 +19,7 @@
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_ARITH.ALL;
-use IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.NUMERIC_STD.all;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -55,9 +54,9 @@ begin
 			signalTab <= (others => b"00000000");
 		else
 			if RW='0' then
-				signalTab(conv_integer(unsigned(Adresse))) <= D_IN;
+				signalTab(to_integer(unsigned(Adresse))) <= D_IN;
 			else
-				D_OUT <= signalTab(conv_integer(unsigned(Adresse)));
+				D_OUT <= signalTab(to_integer(unsigned(Adresse)));
 			end if;
 		end if;
 	end process;

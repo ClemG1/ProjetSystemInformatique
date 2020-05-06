@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/banc_mem.xst" -ofn "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/banc_mem.syr" 
