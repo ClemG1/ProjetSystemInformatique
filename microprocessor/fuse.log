@@ -10,7 +10,7 @@ Parsing VHDL file "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/
 Starting static elaboration
 Completed static elaboration
 Fuse Memory Usage: 99584 KB
-Fuse CPU Usage: 1390 ms
+Fuse CPU Usage: 1250 ms
 Compiling package standard
 Compiling package std_logic_1164
 Compiling package std_logic_arith
@@ -25,6 +25,6 @@ Compiling architecture behavior of entity datapath_test_bench
 Time Resolution for simulation is 1ps.
 Compiled 14 VHDL Units
 Built simulation executable /home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/datapath_test_bench_isim_beh.exe
-Fuse Memory Usage: 679544 KB
-Fuse CPU Usage: 1530 ms
-GCC CPU Usage: 330 ms
+Fuse Memory Usage: 679540 KB
+Fuse CPU Usage: 1390 ms
+GCC CPU Usage: 310 ms

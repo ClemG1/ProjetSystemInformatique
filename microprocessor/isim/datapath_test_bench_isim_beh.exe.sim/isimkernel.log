@@ -2,12 +2,12 @@ Command line:
    datapath_test_bench_isim_beh.exe
      -simmode  gui
      -simrunnum  0
-     -socket  52923
+     -socket  56171
 
-Mon May 11 12:14:11 2020
+Mon May 11 15:12:45 2020
 
 
- Elaboration Time: 0.03 sec
+ Elaboration Time: 0.02 sec
 
  Current Memory Usage: 204.349 Meg
 
@@ -19,13 +19,12 @@ Mon May 11 12:14:11 2020
  Total Processes        : 11
  Total Traceable Variables  : 19
  Total Scalar Nets and Variables : 9518
-Total Line Count : 63
-Total Line Count : 63
-Total Line Count : 63
+Total Line Count : 65
+Total Line Count : 65
 
- Total Simulation Time: 0.16 sec
+ Total Simulation Time: 0.23 sec
 
  Current Memory Usage: 279.851 Meg
 
-Mon May 11 12:16:30 2020
+Mon May 11 15:13:23 2020
 

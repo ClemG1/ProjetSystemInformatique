@@ -109,6 +109,8 @@ begin
 		--AFC
 		when "00000110" =>
 			LC_RF  <= '1';
+		when "00000101" =>
+			LC_RF  <= '1';
 		when others =>
 			LC_RF  <= '0';
 	end case;
@@ -134,13 +136,15 @@ end process;
 MUX : process (CLK, OP_LI_DI, B_LI_DI, QA_OUT, RST)
 begin
 	if RST = '0' then
-		case OP_LI_DI is
-			--CPY
-			when "00000101" =>
-				B_DI_EX <= QA_OUT;
-			when others =>
-				B_DI_EX <= B_LI_DI;
-		end case;
+		if rising_edge(CLK) then
+			case OP_DI_EX is
+				--CPY
+				when "00000101" =>
+					B_DI_EX <= QA_OUT;
+				when others =>
+					B_DI_EX <= B_LI_DI;
+			end case;
+		end if;
 	else
 		B_DI_EX <= "00000000";
 	end if;

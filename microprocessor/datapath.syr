@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.04 secs
+Total CPU time to Xst completion: 0.05 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.04 secs
+Total CPU time to Xst completion: 0.05 secs
  
 --> 
 Reading design: datapath.prj
@@ -127,7 +127,7 @@ Elaborating entity <datapath> (architecture <Behavioral>) from library <work>.
 Elaborating entity <register_file> (architecture <Behavioral>) from library <work>.
 
 Elaborating entity <banc_instr> (architecture <Behavioral>) from library <work>.
-WARNING:HDLCompiler:1127 - "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/datapath.vhd" Line 117: Assignment to c_li_di ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/datapath.vhd" Line 119: Assignment to c_li_di ignored, since the identifier is never used
 WARNING:HDLCompiler:634 - "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/datapath.vhd" Line 73: Net <B_RF[3]> does not have a driver.
 
 =========================================================================
@@ -141,6 +141,7 @@ WARNING:Xst:653 - Signal <B_RF> is used but never assigned. This sourceless sign
     Found 8-bit register for signal <OP_LI_DI>.
     Found 8-bit register for signal <A_LI_DI>.
     Found 8-bit register for signal <B_LI_DI>.
+    Found 8-bit register for signal <B_DI_EX>.
     Found 8-bit register for signal <OP_DI_EX>.
     Found 8-bit register for signal <A_DI_EX>.
     Found 8-bit register for signal <OP_EX_MEM>.
@@ -152,8 +153,8 @@ WARNING:Xst:653 - Signal <B_RF> is used but never assigned. This sourceless sign
     Found 8-bit adder for signal <INSTR_NUM[7]_GND_6_o_add_0_OUT> created at line 101.
     Summary:
 	inferred   1 Adder/Subtractor(s).
-	inferred  92 D-type flip-flop(s).
-	inferred   2 Multiplexer(s).
+	inferred 100 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
 Unit <datapath> synthesized.
 
 Synthesizing Unit <register_file>.
@@ -201,15 +202,15 @@ Macro Statistics
  256x32-bit single-port Read Only RAM                  : 1
 # Adders/Subtractors                                   : 1
  8-bit adder                                           : 1
-# Registers                                            : 31
+# Registers                                            : 32
  32-bit register                                       : 1
  4-bit register                                        : 1
- 8-bit register                                        : 29
+ 8-bit register                                        : 30
 # Comparators                                          : 1
  4-bit comparator equal                                : 1
-# Multiplexers                                         : 5
+# Multiplexers                                         : 4
  8-bit 16-to-1 multiplexer                             : 1
- 8-bit 2-to-1 multiplexer                              : 4
+ 8-bit 2-to-1 multiplexer                              : 3
 
 =========================================================================
 
@@ -284,14 +285,14 @@ Macro Statistics
  256x32-bit single-port block Read Only RAM            : 1
 # Counters                                             : 1
  8-bit up counter                                      : 1
-# Registers                                            : 216
- Flip-Flops                                            : 216
+# Registers                                            : 224
+ Flip-Flops                                            : 224
 # Comparators                                          : 1
  4-bit comparator equal                                : 1
-# Multiplexers                                         : 26
+# Multiplexers                                         : 25
  1-bit 16-to-1 multiplexer                             : 8
  1-bit 2-to-1 multiplexer                              : 16
- 8-bit 2-to-1 multiplexer                              : 2
+ 8-bit 2-to-1 multiplexer                              : 1
 
 =========================================================================
 
@@ -337,7 +338,7 @@ Optimizing unit <register_file> ...
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block datapath, actual ratio is 3.
+Found area constraint ratio of 100 (+ 5) on block datapath, actual ratio is 4.
 WARNING:Xst:1426 - The value init of the FF/Latch INSTR_NUM_0_LD hinder the constant cleaning in the block datapath.
    You should achieve better results by setting this init to 1.
 
@@ -354,8 +355,8 @@ Unit <datapath> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 216
- Flip-Flops                                            : 216
+# Registers                                            : 224
+ Flip-Flops                                            : 224
 # Shift Registers                                      : 4
  4-bit shift register                                  : 4
 
@@ -384,18 +385,18 @@ Primitive and Black Box Usage:
 #      GND                         : 1
 #      LUT1                        : 6
 #      LUT2                        : 4
-#      LUT3                        : 13
-#      LUT4                        : 137
-#      LUT5                        : 5
+#      LUT3                        : 14
+#      LUT4                        : 140
+#      LUT5                        : 1
 #      LUT6                        : 68
 #      MUXCY                       : 7
 #      MUXF7                       : 16
 #      MUXF8                       : 8
 #      VCC                         : 1
 #      XORCY                       : 8
-# FlipFlops/Latches                : 228
+# FlipFlops/Latches                : 236
 #      FD                          : 24
-#      FDC                         : 56
+#      FDC                         : 64
 #      FDCE                        : 7
 #      FDE                         : 4
 #      FDP                         : 8
@@ -420,17 +421,17 @@ Selected Device : 6slx16csg324-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             228  out of  18224     1%  
+ Number of Slice Registers:             236  out of  18224     1%  
  Number of Slice LUTs:                  237  out of   9112     2%  
     Number used as Logic:               233  out of   9112     2%  
     Number used as Memory:                4  out of   2176     0%  
        Number used as SRL:                4
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    284
-   Number with an unused Flip Flop:      56  out of    284    19%  
-   Number with an unused LUT:            47  out of    284    16%  
-   Number of fully used LUT-FF pairs:   181  out of    284    63%  
+ Number of LUT Flip Flop pairs used:    290
+   Number with an unused Flip Flop:      54  out of    290    18%  
+   Number with an unused LUT:            53  out of    290    18%  
+   Number of fully used LUT-FF pairs:   183  out of    290    63%  
    Number of unique control sets:         6
 
 IO Utilization: 
@@ -463,7 +464,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-CLK                                | BUFGP                  | 232   |
+CLK                                | BUFGP                  | 240   |
 RST                                | IBUF+BUFG              | 1     |
 -----------------------------------+------------------------+-------+
 
@@ -476,7 +477,7 @@ Timing Summary:
 Speed Grade: -3
 
    Minimum period: 4.019ns (Maximum Frequency: 248.821MHz)
-   Minimum input arrival time before clock: 3.947ns
+   Minimum input arrival time before clock: 3.707ns
    Maximum output required time after clock: 3.597ns
    Maximum combinational path delay: No path found
 
@@ -487,21 +488,21 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'CLK'
   Clock period: 4.019ns (frequency: 248.821MHz)
-  Total number of paths / destination ports: 2566 / 238
+  Total number of paths / destination ports: 2574 / 246
 -------------------------------------------------------------------------
 Delay:               4.019ns (Levels of Logic = 3)
-  Source:            OP_MEM_RE_7 (FF)
+  Source:            OP_MEM_RE_5 (FF)
   Destination:       register_file_instance/registers_4_6 (FF)
   Source Clock:      CLK rising
   Destination Clock: CLK rising
 
-  Data Path: OP_MEM_RE_7 to register_file_instance/registers_4_6
+  Data Path: OP_MEM_RE_5 to register_file_instance/registers_4_6
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDC:C->Q              2   0.447   0.845  OP_MEM_RE_7 (OP_MEM_RE_7)
-     LUT3:I0->O           17   0.205   1.028  LC_RF<7>_SW0 (N5)
-     LUT6:I5->O           15   0.205   0.982  LC_RF<7>_5 (LC_RF<7>4)
+     FDC:C->Q              2   0.447   0.845  OP_MEM_RE_5 (OP_MEM_RE_5)
+     LUT3:I0->O           17   0.205   1.028  out_SW0 (N5)
+     LUT6:I5->O           15   0.205   0.982  out_5 (out4)
      LUT4:I3->O            1   0.205   0.000  register_file_instance/registers_4_6_rstpot (register_file_instance/registers_4_6_rstpot)
      FDR:D                     0.102          register_file_instance/registers_4_6
     ----------------------------------------
@@ -512,21 +513,20 @@ Delay:               4.019ns (Levels of Logic = 3)
 Timing constraint: Default OFFSET IN BEFORE for Clock 'CLK'
   Total number of paths / destination ports: 207 / 207
 -------------------------------------------------------------------------
-Offset:              3.947ns (Levels of Logic = 2)
+Offset:              3.707ns (Levels of Logic = 1)
   Source:            RST (PAD)
-  Destination:       B_EX_MEM_0 (FF)
+  Destination:       OP_LI_DI_0 (FF)
   Destination Clock: CLK rising
 
-  Data Path: RST to B_EX_MEM_0
+  Data Path: RST to OP_LI_DI_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O           207   1.222   2.420  RST_IBUF (RST_IBUF)
-     LUT6:I0->O            1   0.203   0.000  Mmux_B_DI_EX81 (B_DI_EX<7>)
-     FDC:D                     0.102          B_EX_MEM_7
+     IBUF:I->O           207   1.222   2.055  RST_IBUF (RST_IBUF)
+     FDC:CLR                   0.430          OP_LI_DI_0
     ----------------------------------------
-    Total                      3.947ns (1.527ns logic, 2.420ns route)
-                                       (38.7% logic, 61.3% route)
+    Total                      3.707ns (1.652ns logic, 2.055ns route)
+                                       (44.6% logic, 55.4% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'CLK'
@@ -564,13 +564,13 @@ RST            |         |    3.132|         |         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 6.00 secs
-Total CPU time to Xst completion: 6.10 secs
+Total REAL time to Xst completion: 5.00 secs
+Total CPU time to Xst completion: 5.42 secs
  
 --> 
 
 
-Total memory usage is 402804 kilobytes
+Total memory usage is 402740 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :   41 (   0 filtered)
