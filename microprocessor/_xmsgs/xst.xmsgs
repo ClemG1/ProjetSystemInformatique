@@ -5,7 +5,148 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="error" file="HDLCompiler" num="1030" delta="new" >"/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/banc_instr.vhd" Line 56: Cannot open file &apos;<arg fmt="%s" index="1">init.exe</arg>&apos;.
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/datapath.vhd" Line 117: Assignment to <arg fmt="%s" index="1">c_li_di</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="634" delta="old" >"/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/datapath.vhd" Line 73: Net &lt;<arg fmt="%s" index="1">B_RF[3]</arg>&gt; does not have a driver.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">B_RF</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">D_OUT_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">banc_instr_instance</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">D_OUT_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">banc_instr_instance</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">D_OUT_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">banc_instr_instance</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">D_OUT_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">banc_instr_instance</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">D_OUT_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">banc_instr_instance</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">D_OUT_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">banc_instr_instance</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">D_OUT_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">banc_instr_instance</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">D_OUT_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">banc_instr_instance</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">D_OUT_20</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">banc_instr_instance</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">D_OUT_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">banc_instr_instance</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">D_OUT_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">banc_instr_instance</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">D_OUT_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">banc_instr_instance</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">A_LI_DI_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">datapath</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">A_LI_DI_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">datapath</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">A_LI_DI_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">datapath</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">A_LI_DI_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">datapath</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">A_DI_EX_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">datapath</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">A_DI_EX_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">datapath</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">A_DI_EX_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">datapath</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">A_DI_EX_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">datapath</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">A_EX_MEM_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">datapath</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">A_EX_MEM_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">datapath</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">A_EX_MEM_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">datapath</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">A_EX_MEM_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">datapath</arg>&gt;.
+</msg>
+
+<msg type="info" file="Xst" num="3226" delta="old" >The RAM &lt;<arg fmt="%s" index="1">Mram_Adresse[7]_signalTab[255][31]_wide_mux_0_OUT</arg>&gt; will be implemented as a BLOCK RAM, absorbing the following register(s):</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">A_LI_DI_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">datapath</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">A_LI_DI_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">datapath</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">A_LI_DI_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">datapath</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">A_LI_DI_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">datapath</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">A_DI_EX_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">datapath</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">A_DI_EX_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">datapath</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">A_DI_EX_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">datapath</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">A_DI_EX_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">datapath</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">A_EX_MEM_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">datapath</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">A_EX_MEM_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">datapath</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">A_EX_MEM_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">datapath</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">A_EX_MEM_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">datapath</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="3002" delta="old" >This design contains one or more registers/latches that are directly
+incompatible with the <arg fmt="%s" index="1">Spartan6</arg> architecture. The two primary causes of this is
+either a register or latch described with both an asynchronous set and
+asynchronous reset, or a register or latch described with an asynchronous
+set or reset which however has an initialization value of the opposite 
+polarity (i.e. asynchronous reset with an initialization value of 1).
+ While this circuit can be built, it creates a sub-optimal implementation
+in terms of area, power and performance. For a more optimal implementation
+Xilinx highly recommends one of the following:
+
+       1) Remove either the set or reset from all registers and latches
+          if not needed for required functionality
+       2) Modify the code in order to produce a synchronous set
+          and/or reset (both is preferred)
+       3) Ensure all registers have the same initialization value as the
+          described asynchronous set or reset polarity
+       4) Use the -async_to_sync option to transform the asynchronous
+          set/reset to synchronous operation
+          (timing simulation highly recommended when using this option)
+</msg>
+
+<msg type="warning" file="Xst" num="1426" delta="old" >The value init of the FF/Latch <arg fmt="%s" index="1">INSTR_NUM_0_LD</arg> hinder the constant cleaning in the block <arg fmt="%s" index="2">datapath</arg>.
+You should achieve better results by setting this init to <arg fmt="%i" index="3">1</arg>.
 </msg>
 
 </messages>

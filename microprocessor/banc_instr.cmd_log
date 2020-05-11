@@ -16,3 +16,9 @@ xst -intstyle ise -ifn "/home/gehin/Documents/insa/projects/ProjetSystemInformat
 xst -intstyle ise -ifn "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/banc_instr.xst" -ofn "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/banc_instr.syr" 
 xst -intstyle ise -ifn "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/banc_instr.xst" -ofn "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/banc_instr.syr" 
 xst -intstyle ise -ifn "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/banc_instr.xst" -ofn "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/banc_instr.syr" 
+xst -intstyle ise -ifn "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/banc_instr.xst" -ofn "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/banc_instr.syr" 
+xst -intstyle ise -ifn "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/banc_instr.xst" -ofn "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/banc_instr.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 banc_instr.ngc banc_instr.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o banc_instr_map.ncd banc_instr.ngd banc_instr.pcf 
+par -w -intstyle ise -ol high -mt off banc_instr_map.ncd banc_instr.ncd banc_instr.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml banc_instr.twx banc_instr.ncd -o banc_instr.twr banc_instr.pcf 

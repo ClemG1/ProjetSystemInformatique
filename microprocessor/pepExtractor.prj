@@ -1,1 +1,3 @@
+work	"banc_instr.vhd"
+work	"datapath.vhd"
 work	"register_file.vhd"

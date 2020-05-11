@@ -1,22 +1,30 @@
-Running: /home/gehin/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -lib secureip -o /home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/test_bench_register_file_isim_beh.exe -prj /home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/test_bench_register_file_beh.prj test_bench_register_file 
+Running: /home/gehin/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -lib secureip -o /home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/datapath_test_bench_isim_beh.exe -prj /home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/datapath_test_bench_beh.prj work.datapath_test_bench 
 ISim P.20131013 (signature 0xfbc00daa)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
 Determining compilation order of HDL files
 Parsing VHDL file "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/register_file.vhd" into library work
-Parsing VHDL file "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/test_bench_register_file.vhd" into library work
+Parsing VHDL file "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/banc_instr.vhd" into library work
+Parsing VHDL file "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/datapath.vhd" into library work
+Parsing VHDL file "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/datapath_test_bench.vhd" into library work
 Starting static elaboration
 Completed static elaboration
-Fuse Memory Usage: 97572 KB
-Fuse CPU Usage: 1300 ms
+Fuse Memory Usage: 99584 KB
+Fuse CPU Usage: 1390 ms
 Compiling package standard
 Compiling package std_logic_1164
+Compiling package std_logic_arith
+Compiling package std_logic_unsigned
 Compiling package numeric_std
+Compiling package textio
+Compiling package std_logic_textio
 Compiling architecture behavioral of entity register_file [register_file_default]
-Compiling architecture behavior of entity test_bench_register_file
+Compiling architecture behavioral of entity banc_instr [banc_instr_default]
+Compiling architecture behavioral of entity datapath [datapath_default]
+Compiling architecture behavior of entity datapath_test_bench
 Time Resolution for simulation is 1ps.
-Compiled 6 VHDL Units
-Built simulation executable /home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/test_bench_register_file_isim_beh.exe
-Fuse Memory Usage: 669160 KB
-Fuse CPU Usage: 1380 ms
-GCC CPU Usage: 230 ms
+Compiled 14 VHDL Units
+Built simulation executable /home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/datapath_test_bench_isim_beh.exe
+Fuse Memory Usage: 679544 KB
+Fuse CPU Usage: 1530 ms
+GCC CPU Usage: 330 ms

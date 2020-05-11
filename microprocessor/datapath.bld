@@ -8,10 +8,6 @@ datapath.ngd
 Reading NGO file
 "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/dat
 apath.ngc" ...
-Loading design module
-"/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/dat
-apath.ngc"...
-WARNING:NgdBuild:578 - Design contains no instances.
 Gathering constraint information from source properties...
 Done.
 
@@ -30,12 +26,12 @@ Partition Implementation Status
 
 NGDBUILD Design Results Summary:
   Number of errors:     0
-  Number of warnings:   1
+  Number of warnings:   0
 
-Total memory usage is 407696 kilobytes
+Total memory usage is 408812 kilobytes
 
 Writing NGD file "datapath.ngd" ...
-Total REAL time to NGDBUILD completion:  3 sec
-Total CPU time to NGDBUILD completion:   3 sec
+Total REAL time to NGDBUILD completion:  2 sec
+Total CPU time to NGDBUILD completion:   2 sec
 
 Writing NGDBUILD log file "datapath.bld"...

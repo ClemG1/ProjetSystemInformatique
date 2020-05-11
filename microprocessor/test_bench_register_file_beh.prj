@@ -1,2 +1,0 @@
-vhdl work "register_file.vhd"
-vhdl work "test_bench_register_file.vhd"
