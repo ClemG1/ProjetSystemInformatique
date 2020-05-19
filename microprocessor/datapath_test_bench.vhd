@@ -43,7 +43,8 @@ ARCHITECTURE behavior OF datapath_test_bench IS
     PORT(
          CLK : IN  std_logic;
          RST : IN  std_logic;
-         REGISTER_OUT_2 : OUT  std_logic_vector(7 downto 0)
+         BANC_INSTR_OUT : out STD_LOGIC_VECTOR (31 downto 0);
+			ALU_OUT : out STD_LOGIC_VECTOR (7 downto 0)
         );
     END COMPONENT;
     
@@ -53,7 +54,8 @@ ARCHITECTURE behavior OF datapath_test_bench IS
    signal RST : std_logic := '0';
 
  	--Outputs
-   signal REGISTER_OUT_2 : std_logic_vector(7 downto 0);
+   signal BANC_INSTR_OUT : STD_LOGIC_VECTOR (31 downto 0);
+	signal ALU_OUT : STD_LOGIC_VECTOR (7 downto 0);
 
    -- Clock period definitions
    constant CLK_period : time := 10 ns;
@@ -64,7 +66,8 @@ BEGIN
    uut: datapath PORT MAP (
           CLK => CLK,
           RST => RST,
-          REGISTER_OUT_2 => REGISTER_OUT_2
+          BANC_INSTR_OUT => BANC_INSTR_OUT,
+			 ALU_OUT => ALU_OUT
         );
 
    -- Clock process definitions

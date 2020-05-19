@@ -1,4 +1,5 @@
 vhdl work "register_file.vhd"
 vhdl work "banc_instr.vhd"
+vhdl work "alu.vhd"
 vhdl work "datapath.vhd"
 vhdl work "datapath_test_bench.vhd"

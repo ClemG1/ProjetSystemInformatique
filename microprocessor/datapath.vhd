@@ -36,7 +36,8 @@ use IEEE.NUMERIC_STD.all;
 entity datapath is
     Port ( CLK : in  STD_LOGIC;
            RST : in  STD_LOGIC;
-			  REGISTER_OUT_2 : out STD_LOGIC_VECTOR (7 downto 0));
+			  BANC_INSTR_OUT : out STD_LOGIC_VECTOR (31 downto 0);
+			  ALU_OUT : out STD_LOGIC_VECTOR (7 downto 0));
 end datapath;
 
 architecture Behavioral of datapath is
@@ -66,25 +67,26 @@ signal INSTR_NUM : STD_LOGIC_VECTOR (7 downto 0) := "00000000";
 --register file signal
 signal QA_OUT : STD_LOGIC_VECTOR (7 downto 0);
 
+--ALU sihnal
+signal S_OUT : STD_LOGIC_VECTOR (7 downto 0);
+
 --LC signals
 signal LC_RF : STD_LOGIC;
-
---temporary signal for register
-signal B_RF : STD_LOGIC_VECTOR (3 downto 0);
+signal LC_ALU : STD_LOGIC_VECTOR (2 downto 0);
 
 begin
 
 register_file_instance : entity WORK.register_file
 port map (
 	A_Address => B_LI_DI (3 downto 0),
-	B_Address => B_RF,
+	B_Address => C_LI_DI (3 downto 0),
 	W_Address => A_MEM_RE (3 downto 0),
 	W => LC_RF,
 	DATA => B_MEM_RE,
 	RST => RST,
 	CLK => CLK,
 	QA => QA_OUT,
-	QB => REGISTER_OUT_2);
+	QB => C_DI_EX);
 	
 banc_instr_instance : entity WORK.banc_instr
 port map (
@@ -92,6 +94,16 @@ port map (
 	CLK => CLK,
 	D_OUT => INSTR_OUT);
 	
+alu_instance : entity WORK.alu
+port map (
+	A => B_DI_EX,
+	B => C_DI_EX,
+	Ctrl_Alu => LC_ALU,
+	S => S_OUT);
+	
+BANC_INSTR_OUT <= INSTR_OUT;
+ALU_OUT <= S_OUT;
+
 IP : process (CLK, INSTR_NUM, RST)
 begin
 	if RST = '1' then
@@ -109,11 +121,29 @@ begin
 		--AFC
 		when "00000110" =>
 			LC_RF  <= '1';
+		--CPY
 		when "00000101" =>
+			LC_RF  <= '1';
+		--ADD
+		when "00000001" =>
+			LC_RF  <= '1';
+		--MUL
+		when "00000010" =>
+			LC_RF  <= '1';
+		--SUB
+		when "00000011" =>
+			LC_RF  <= '1';
+		--DIV
+		when "00000100" =>
 			LC_RF  <= '1';
 		when others =>
 			LC_RF  <= '0';
 	end case;
+end process;
+
+LC_ALU_PROCESS : process (OP_DI_EX)
+begin
+	LC_ALU <= OP_DI_EX (2 downto 0);
 end process;
 
 LI_DI : process (CLK,INSTR_OUT,RST)
@@ -133,7 +163,7 @@ begin
 	end if;
 end process;
 
-MUX : process (CLK, OP_LI_DI, B_LI_DI, QA_OUT, RST)
+MUX_RF : process (CLK, OP_DI_EX, B_LI_DI, QA_OUT, RST)
 begin
 	if RST = '0' then
 		if rising_edge(CLK) then
@@ -147,6 +177,32 @@ begin
 		end if;
 	else
 		B_DI_EX <= "00000000";
+	end if;
+end process;
+
+MUX_ALU : process (CLK, OP_DI_EX, B_DI_EX, S_OUT, B_EX_MEM, RST)
+begin
+	if RST = '0' then
+		if rising_edge(CLK) then
+			case OP_DI_EX is
+				--ADD
+				when "00000001" =>
+					B_EX_MEM <= S_OUT;
+				--MUL
+				when "00000010" =>
+					B_EX_MEM <= S_OUT;
+				--SUB
+				when "00000011" =>
+					B_EX_MEM <= S_OUT;
+				--DIV
+				when "00000100" =>
+					B_EX_MEM <= S_OUT;
+				when others =>
+					B_EX_MEM <= B_DI_EX;
+			end case;
+		end if;
+	else
+		B_EX_MEM <= "00000000";
 	end if;
 end process;
 
@@ -169,12 +225,10 @@ begin
 		if rising_edge(CLK) then
 			OP_EX_MEM <= OP_DI_EX;
 			A_EX_MEM <= A_DI_EX;
-			B_EX_MEM <= B_DI_EX;
 		end if;
 	else
 		OP_EX_MEM <= "00000000";
 		A_EX_MEM <= "00000000";
-		B_EX_MEM <= "00000000";
 	end if;
 end process;
 
