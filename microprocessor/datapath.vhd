@@ -70,9 +70,16 @@ signal QA_OUT : STD_LOGIC_VECTOR (7 downto 0);
 --ALU sihnal
 signal S_OUT : STD_LOGIC_VECTOR (7 downto 0);
 
+--memory signal
+signal MEMORY_OUT : STD_LOGIC_VECTOR (7 downto 0);
+
 --LC signals
 signal LC_RF : STD_LOGIC;
 signal LC_ALU : STD_LOGIC_VECTOR (2 downto 0);
+signal LC_MEM : STD_LOGIC;
+
+--temporary signal
+signal TEMPORARY : STD_LOGIC_VECTOR (7 downto 0);
 
 begin
 
@@ -100,6 +107,15 @@ port map (
 	B => C_DI_EX,
 	Ctrl_Alu => LC_ALU,
 	S => S_OUT);
+	
+banc_mem_instance : entity WORK.banc_mem
+port map (
+	Adresse => B_EX_MEM,
+   D_IN => TEMPORARY,
+   RW => LC_MEM,
+   RST => RST,
+   CLK => CLK,
+   D_OUT => MEMORY_OUT);
 	
 BANC_INSTR_OUT <= INSTR_OUT;
 ALU_OUT <= S_OUT;
@@ -136,6 +152,9 @@ begin
 		--DIV
 		when "00000100" =>
 			LC_RF  <= '1';
+		--LOAD
+		when "00000111" =>
+			LC_RF  <= '1';
 		when others =>
 			LC_RF  <= '0';
 	end case;
@@ -144,6 +163,16 @@ end process;
 LC_ALU_PROCESS : process (OP_DI_EX)
 begin
 	LC_ALU <= OP_DI_EX (2 downto 0);
+end process;
+
+LC_MEMORY_PROCESS : process (OP_EX_MEM)
+begin
+	case OP_EX_MEM is
+		when "00000111" =>
+			LC_MEM <= '1';
+		when others =>
+			LC_MEM <= '0';
+	end case;
 end process;
 
 LI_DI : process (CLK,INSTR_OUT,RST)
@@ -206,6 +235,23 @@ begin
 	end if;
 end process;
 
+MUX_MEM : process (CLK, OP_EX_MEM, B_EX_MEM, MEMORY_OUT, RST)
+begin
+	if RST = '0' then
+		if rising_edge(CLK) then
+			case OP_EX_MEM is
+				--LOAD
+				when "00000111" =>
+					B_MEM_RE <= MEMORY_OUT;
+				when others =>
+					B_MEM_RE <= B_EX_MEM;
+			end case;
+		end if;
+	else
+		B_MEM_RE <= "00000000";
+	end if;
+end process;
+
 DI_EX : process (CLK, OP_LI_DI, A_LI_DI, B_LI_DI, RST)
 begin
 	if RST = '0' then
@@ -238,12 +284,10 @@ begin
 		if rising_edge(CLK) then
 			OP_MEM_RE <= OP_EX_MEM;
 			A_MEM_RE <= A_EX_MEM;
-			B_MEM_RE <= B_EX_MEM;
 		end if;
 	else
 		OP_MEM_RE <= "00000000";
 		A_MEM_RE <= "00000000";
-		B_MEM_RE <= "00000000";
 	end if;
 end process;
 

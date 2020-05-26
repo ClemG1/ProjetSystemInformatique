@@ -85,9 +85,9 @@ BEGIN
 		wait for CLK_period/2;
    end process;
  
-RST <= '0', '1' after 10 ns , '0' after 160 ns;
-Adresse <="00000000", "00000001" after 60 ns, "00000000" after 110 ns;
-D_IN <= "11111111", "10101010" after 60 ns, "00000000" after 110 ns;
-RW <= '0','1' after 110 ns; 
+RST <= '0', '1' after 10 ns , '0' after 20 ns;
+Adresse <="00000000", "00000001" after 30 ns, "00000000" after 50 ns;
+D_IN <= "11111111", "10101010" after 30 ns, "00000000" after 50 ns;
+RW <= '0','1' after 50 ns; 
 
 END;

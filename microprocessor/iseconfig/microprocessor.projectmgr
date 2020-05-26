@@ -65,13 +65,13 @@
          <ClosedNode>User Constraints</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>Generate Programming File</SelectedItem>
+         <SelectedItem>Synthesize - XST</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f4000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f40000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem>Generate Programming File</CurrentItem>
+      <CurrentItem>Synthesize - XST</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" guiview="Source" compilemode="ManualCompile" >
       <ClosedNodes>
@@ -90,7 +90,6 @@
       <ClosedNodes>
          <ClosedNodesVersion>2</ClosedNodesVersion>
          <ClosedNode>/test_banc_mem - behavior |home|gehin|Documents|insa|projects|ProjetSystemInformatique|fichiers_banc|test_banc_mem.vhd</ClosedNode>
-         <ClosedNode>/test_banc_mem - behavior |home|gehin|Documents|insa|projects|ProjetSystemInformatique|microprocessor|test_banc_mem.vhd</ClosedNode>
          <ClosedNode>/test_bench_alu - behavior |home|gehin|Documents|insa|projects|ProjetSystemInformatique|microprocessor|test_bench_alu.vhd</ClosedNode>
          <ClosedNode>/test_bench_register_file - behavior |home|gehin|Documents|insa|projects|ProjetSystemInformatique|microprocessor|test_bench_register_file.vhd</ClosedNode>
       </ClosedNodes>
@@ -131,5 +130,5 @@
       <CurrentItem>Simulate Behavioral Model</CurrentItem>
    </ItemView>
    <SourceProcessView>000000ff00000000000000020000014c0000011d01000000060100000002</SourceProcessView>
-   <CurrentView>Behavioral Simulation</CurrentView>
+   <CurrentView>Implementation</CurrentView>
 </Project>

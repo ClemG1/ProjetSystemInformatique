@@ -26,6 +26,10 @@ at 95 ns(3): Error: Invalid entry for Ctrl_Alu
 at 105 ns(2): Error: Invalid entry for Ctrl_Alu
 at 125 ns(2): Error: Invalid entry for Ctrl_Alu
 at 135 ns(3): Error: Invalid entry for Ctrl_Alu
+at 165 ns(2): Error: Invalid entry for Ctrl_Alu
+at 165 ns(3): Error: Invalid entry for Ctrl_Alu
+at 175 ns(2): Error: Invalid entry for Ctrl_Alu
+at 175 ns(3): Error: Invalid entry for Ctrl_Alu
 # restart
 # run 10ns
 Simulator is doing circuit initialization process.
@@ -59,5 +63,12 @@ at 125 ns(2): Error: Invalid entry for Ctrl_Alu
 # run 10ns
 at 135 ns(3): Error: Invalid entry for Ctrl_Alu
 # run 10ns
+# run 10ns
+# run 10ns
+at 165 ns(2): Error: Invalid entry for Ctrl_Alu
+at 165 ns(3): Error: Invalid entry for Ctrl_Alu
+# run 10ns
+at 175 ns(2): Error: Invalid entry for Ctrl_Alu
+at 175 ns(3): Error: Invalid entry for Ctrl_Alu
 # run 10ns
 # exit 0

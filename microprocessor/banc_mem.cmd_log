@@ -1,1 +1,36 @@
 xst -intstyle ise -ifn "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/banc_mem.xst" -ofn "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/banc_mem.syr" 
+xst -intstyle ise -ifn "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/banc_mem.xst" -ofn "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/banc_mem.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 banc_mem.ngc banc_mem.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o banc_mem_map.ncd banc_mem.ngd banc_mem.pcf 
+par -w -intstyle ise -ol high -mt off banc_mem_map.ncd banc_mem.ncd banc_mem.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml banc_mem.twx banc_mem.ncd -o banc_mem.twr banc_mem.pcf 
+xst -intstyle ise -ifn "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/banc_mem.xst" -ofn "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/banc_mem.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 banc_mem.ngc banc_mem.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o banc_mem_map.ncd banc_mem.ngd banc_mem.pcf 
+par -w -intstyle ise -ol high -mt off banc_mem_map.ncd banc_mem.ncd banc_mem.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml banc_mem.twx banc_mem.ncd -o banc_mem.twr banc_mem.pcf 
+bitgen -intstyle ise -f banc_mem.ut banc_mem.ncd 
+xst -intstyle ise -ifn "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/banc_mem.xst" -ofn "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/banc_mem.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 banc_mem.ngc banc_mem.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o banc_mem_map.ncd banc_mem.ngd banc_mem.pcf 
+par -w -intstyle ise -ol high -mt off banc_mem_map.ncd banc_mem.ncd banc_mem.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml banc_mem.twx banc_mem.ncd -o banc_mem.twr banc_mem.pcf 
+bitgen -intstyle ise -f banc_mem.ut banc_mem.ncd 
+xst -intstyle ise -ifn "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/banc_mem.xst" -ofn "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/banc_mem.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 banc_mem.ngc banc_mem.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o banc_mem_map.ncd banc_mem.ngd banc_mem.pcf 
+par -w -intstyle ise -ol high -mt off banc_mem_map.ncd banc_mem.ncd banc_mem.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml banc_mem.twx banc_mem.ncd -o banc_mem.twr banc_mem.pcf 
+bitgen -intstyle ise -f banc_mem.ut banc_mem.ncd 
+xst -intstyle ise -ifn "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/banc_mem.xst" -ofn "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/banc_mem.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 banc_mem.ngc banc_mem.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o banc_mem_map.ncd banc_mem.ngd banc_mem.pcf 
+par -w -intstyle ise -ol high -mt off banc_mem_map.ncd banc_mem.ncd banc_mem.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml banc_mem.twx banc_mem.ncd -o banc_mem.twr banc_mem.pcf 
+bitgen -intstyle ise -f banc_mem.ut banc_mem.ncd 
+xst -intstyle ise -ifn "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/banc_mem.xst" -ofn "/home/gehin/Documents/insa/projects/ProjetSystemInformatique/microprocessor/banc_mem.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx16-csg324-3 banc_mem.ngc banc_mem.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o banc_mem_map.ncd banc_mem.ngd banc_mem.pcf 
+par -w -intstyle ise -ol high -mt off banc_mem_map.ncd banc_mem.ncd banc_mem.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml banc_mem.twx banc_mem.ncd -o banc_mem.twr banc_mem.pcf 
+bitgen -intstyle ise -f banc_mem.ut banc_mem.ncd 

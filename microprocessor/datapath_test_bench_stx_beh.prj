@@ -1,4 +1,5 @@
 vhdl isim_temp "register_file.vhd"
+vhdl isim_temp "banc_mem.vhd"
 vhdl isim_temp "banc_instr.vhd"
 vhdl isim_temp "alu.vhd"
 vhdl isim_temp "datapath.vhd"

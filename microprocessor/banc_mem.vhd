@@ -42,21 +42,22 @@ end banc_mem;
 architecture Behavioral of banc_mem is
 
 	type tabData is array(natural range 255 downto 0) of std_logic_vector(7 downto 0);
-	signal signalTab : tabData :=(others => b"00000000");
+	signal memoryTab : tabData :=(others => b"00000000");
 	
 
 begin
 
-	Clock : process
+	process (CLK,memoryTab,Adresse,RST,D_IN,RW) is
 	begin
-		wait until CLK'event and CLK='1';
-		if RST ='1' then
-			signalTab <= (others => b"00000000");
-		else
-			if RW='0' then
-				signalTab(to_integer(unsigned(Adresse))) <= D_IN;
+		if rising_edge(CLK) then 
+			if RST ='1' then
+				memoryTab <= (others => b"00001000");
 			else
-				D_OUT <= signalTab(to_integer(unsigned(Adresse)));
+				if RW='0' then
+					memoryTab(to_integer(unsigned(Adresse))) <= D_IN;
+				else
+					D_OUT <= memoryTab(to_integer(unsigned(Adresse)));
+				end if;
 			end if;
 		end if;
 	end process;

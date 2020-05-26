@@ -1,14 +1,16 @@
 int main () {
     int a = 2;
-    int b = 3;
+    int b;
+    int c = 0;
 
-    while ( a = 2) {
-        if (b = 3) {
-            a = 3;
-        }
-        else {
-            b = b +1;
-        }
+    if (a = 2){
+        b = 4;
     }
-    
+    else {
+        b = 8;
+    }
+    while (b > 2) {
+        b = b - 1;
+        c = c + b; 
+    }
 }
